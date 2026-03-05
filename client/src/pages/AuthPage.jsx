@@ -15,7 +15,7 @@ const AuthPage = () => {
         setError('');
         const endpoint = isLogin ? 'login' : 'register';
         try {
-            const res = await axios.post(`http://localhost:5000/api/auth/${endpoint}`, formData);
+            const res = await axios.post(`/api/auth/${endpoint}`, formData);
             if (isLogin) {
                 login(res.data.user);
                 localStorage.setItem('token', res.data.token);

@@ -23,8 +23,8 @@ const LearningPage = () => {
         const fetchData = async () => {
             try {
                 const [courseRes, progressRes] = await Promise.all([
-                    axios.get(`http://localhost:5000/api/courses/${id}`),
-                    axios.get(`http://localhost:5000/api/courses/${id}/progress/${user.id}`)
+                    axios.get(`/api/courses/${id}`),
+                    axios.get(`/api/courses/${id}/progress/${user.id}`)
                 ]);
 
                 setCourse(courseRes.data);
@@ -49,7 +49,7 @@ const LearningPage = () => {
         if (completedLessons.includes(lessonId)) return;
 
         try {
-            await axios.post('http://localhost:5000/api/courses/progress/mark-complete', {
+            await axios.post('/api/courses/progress/mark-complete', {
                 userId: user.id,
                 lessonId
             });
